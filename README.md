@@ -14,10 +14,28 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 * `cdk synth`       emits the synthesized CloudFormation template
 
 # TUTORIALNYA
+
+### syarat
+- harus sudah punya akun AWS
+
+
 install cdk
 ```
 npm i -g cdk
 ```
+install juga aws cli
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+
+configure aws cli di local
+```
+aws configure
+```
+lalu isi sesuai akun aws kalian
+
 buat directory buat testing
 ```
 mkdir lambdaCDK
@@ -27,9 +45,50 @@ buat project cdk
 ```
 cdk init app --language typescript
 ```
+install beberapa library tambahan
+```
+npm i @aws-cdk/aws-lambda
+npm i --save-dev esbuild@0
+npm i @aws-cdk/aws-lambda-nodejs
+```
+
+harus buat template buat deployment denga cara bootstrap
+```
+cdk bootstrap aws://<aws account id>/<region>
+
+contoh
+cdk bootstrap aws://123456789012/us-east-1
+```
+
 
 buat folder dan file untuk tempat handler functionnya, contohnya saya namanya functions
 ```
 mkdir functions
 touch functions/function.ts
 ```
+untuk contoh script buat di function.ts bisa copas di [function.ts](https://raw.githubusercontent.com/masnasri-a/lambdaCDK/main/functions/function.ts)
+
+edit file didalam folder lib juga,
+tambahkan
+```
+new NodejsFunction(this, 'cdkLambda',{
+    functionName: "cdkLambdaTest",
+    runtime: lambda.Runtime.NODEJS_14_X,
+    entry: path.join(__dirname, `/../functions/function.ts`),
+    handler: "handler",
+    timeout:cdk.Duration.seconds(300)
+})
+```
+
+kalau sudah, tinggal di synthesizes
+```
+cdk synth
+```
+
+kalau sukses tinggal deploy
+```
+cdk deploy
+```
+
+
+
