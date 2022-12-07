@@ -90,5 +90,26 @@ kalau sukses tinggal deploy
 cdk deploy
 ```
 
+kalau berhasil maka akan seperti ini
+![Success Images!](/public/4.png "Success Deploy")
 
+terus buka akun aws, terus cari menu lambda
 
+![Lambda Menu Images!](/public/5.png "Lambda Menus")
+
+terus buka bagian function seperti gambar dibawah
+
+![Lambda Menu Images!](/public/1.png "Lambda Menus")
+
+selanjutnya kita buat trigger untuk mengakses function handler
+klik add trigger
+![Lambda Menu Images!](/public/2.png "Lambda Menus")
+
+sebagai contoh tambahkan seperti pengaturan diatas
+
+![Lambda Menu Images!](/public/3.png "Lambda Menus")
+
+lalu klik API endpoint di browser, dan tambahkan parameter name
+![Lambda Menu Images!](/public/6.png "Lambda Menus")
+
+kalau muncul seperti gambar diatas berarti sukses
