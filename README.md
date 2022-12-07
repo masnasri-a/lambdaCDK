@@ -13,6 +13,19 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 * `cdk diff`        compare deployed stack with current state
 * `cdk synth`       emits the synthesized CloudFormation template
 
+# PENJELASAN SINGKAT
+
+### APA ITU CDK
+cdk (cloud development kit) merupakan open-source untuk melakukan developing terutama di aws yang bisa ngedifine infra dari cloud yang akan digunakan yang langsung didalam code yang disediakan lewat CloudFormation.
+
+<b>intinya framework buat deploy aplikasi ke aws</b>
+
+### APA ITU AWS LAMBDA
+aws lambda layanan komputasi serverless yang disediakan oleh AWS, AWS Lambda memungkinkan kita untuk menjalankan kode program saat terjadi event tertentu (event-driven) yang bersumber dari layanan AWS lain, misalnya saat ada http request ke sebuah endpoint API Gateway, ada objek/file baru ditambahkan ke sebuah bucket S3 dan sebagainya. Kita dapat menulis dan mengupload kode program dalam bahasa pemrograman yang didukung ke AWS Lambda, kemudian mengatur layanan AWS apa yang akan memicu dijalankan kode program tersebut.
+
+<b>intinya, aws lambda itu handler function yang bakal di jalanin kalau ada event dari trigger, dan dideploy ke aws yang dia serverless, dan bakal hidup kalau ada yang trigger dan bakal mati otomatis. nanti bakal paham pas langsung coba</b>
+
+
 # TUTORIALNYA
 
 ### syarat
