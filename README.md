@@ -63,6 +63,8 @@ install beberapa library tambahan
 npm i @aws-cdk/aws-lambda
 npm i --save-dev esbuild@0
 npm i @aws-cdk/aws-lambda-nodejs
+npm i aws-lambda
+npm i --save-dev aws-lambda
 ```
 
 harus buat template buat deployment denga cara bootstrap
