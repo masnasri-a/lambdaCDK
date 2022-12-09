@@ -126,3 +126,59 @@ lalu klik API endpoint di browser, dan tambahkan parameter name
 ![Lambda Menu Images!](/public/6.png "Lambda Menus")
 
 kalau muncul seperti gambar diatas berarti sukses
+
+
+### APA ITU DYNAMODB
+
+sebuah basis data NoSQL yang dikelola secara penuh (fully-managed) oleh Amazon Web Service (AWS). Dengan menggunakan DynamoDB, kita dapat dengan mudah menyimpan data dari aplikasi dalam skala apapun tanpa harus memikirkan bagaimana mengelola server basis data secara mandiri. Hal tersebut, membuat DynamoDB menjadi salah satu layanan AWS yang populer digunakan untuk membangun aplikasi dengan arsitektur serverless
+
+#### CARA PENGGUNAANNYA (LANJUTAN)
+
+install library aws-sdk
+```
+npm i aws-sdk
+```
+
+buka aws dan search services dynamoDB
+![Dynamo Menu Images!](/public/10.png "Dynamo Menus")
+
+buat table di dynamodb di aws, dan buat settingan hampir mirip seperti ini
+
+![Dynamo Menu Images!](/public/11.png "Dynamo Menus")
+
+kalau sudah buka menu IAM terus buat polecies baru di create policy
+![Dynamo Menu Images!](/public/9.png "Dynamo Menus")
+
+pilih service Dynamo db dan set Actionnya kurang lebih seperti dibawah
+![Dynamo Menu Images!](/public/12.png "Dynamo Menus")
+
+untuk resourcenya bisa di allow untuk yang warning seperti dibawah terus next next saja
+![Dynamo Menu Images!](/public/13.png "Dynamo Menus")
+
+Kalau sudah masuk ke menu Roles dan edit policynya, contoh role yang saya pakai 
+![Dynamo Menu Images!](/public/14.png "Dynamo Menus")
+
+dibagian permission pilih add permission -> attach permission terus masukin policy yang sudah dibuat tadi, dan jadinya bakal seperti ini
+![Dynamo Menu Images!](/public/15.png "Dynamo Menus")
+
+kalau sudah lanjut yang codingan, bisa buka [function.ts](https://raw.githubusercontent.com/masnasri-a/lambdaCDK/main/functions/function.ts) sudah di tambah codingan buat CRUD
+
+kalau sudah ditambah tinggal 
+```
+cdk deploy
+```
+
+untuk hasil testing 
+ - CREATE / UPDATE (Karena dynamo db model upsert)
+  ![Dynamo Menu Images!](/public/16.png "Dynamo Menus")
+  ![Dynamo Menu Images!](/public/17.png "Dynamo Menus")
+
+- READ
+
+  ![Dynamo Menu Images!](/public/18.png "Dynamo Menus")
+
+- DELETE
+
+  ![Dynamo Menu Images!](/public/19.png "Dynamo Menus")
+  ![Dynamo Menu Images!](/public/20.png "Dynamo Menus")
+
